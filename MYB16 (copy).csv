@@ -1,0 +1,4 @@
+SampleID,Tissue,Factor,Replicate,bamReads,ControlID,bamControl,Peaks,PeakCaller
+1MYB16,NA,MYB16,1,data/bowtie/1MYB16.fin.bam,IN1,data/bowtie/IN1.fin.bam,data/macs/1MYB16_peaks.xls,macs
+2MYB16,NA,MYB16,2,data/bowtie/2MYB16.fin.bam,IN2,data/bowtie/IN2.fin.bam,data/macs/2MYB16_peaks.xls,macs
+3MYB16,NA,MYB16,3,data/bowtie/3MYB16.fin.bam,IN3,data/bowtie/IN3.fin.bam,data/macs/3MYB16_peaks.xls,macs
