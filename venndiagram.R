@@ -25,7 +25,6 @@ draw.triple.venn(area1=419, area2=3729, area3=75, n12=124, n23=49, n13=33, n123=
                    list(c(0.5, 1), c(0.5, 1), c(0.5, 0)), cat.default.pos
                  = "outer")
 
-overridePairwise=T
 draw.pairwise.venn(area1=6478, area2=73, cross.area=21, category = c("HDL ampDAP", "HDL ChIP"), 
                    col = c("cyan", "pink"), fill = c("cyan", "pink"))
                    
