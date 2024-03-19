@@ -1,10 +1,5 @@
 BiocManager::install("ChIPQC")
 
-setwd("/data/2023_dapseq/diffbind")
-getwd()
-
-library(tidyverse)
-
 ## Load libraries
 library(ChIPQC)
 
@@ -15,15 +10,9 @@ samples_hdl
 
 ## Create ChIPQC object
 chipObj <- ChIPQC(samples_hdl)
-chipObj <- ChIPQC(sampleSheet="meta/hdl_dap.csv")
 
 ## Create ChIPQC report
 ChIPQCreport(chipObj, reportName="ChIP QC report: hdlvsmhd", reportFolder="ChIPQCreport")
-
-## Create ChIPQC object #2
-experiment = ChIPQC(samples_hdl)
-experiment
-ChIPQCreport(experiment)
 
 # Generating a QC report for a ChIP-seq single sample
 hdl1bam = ChIPQCsample("data/bowtie/hdl1_sort.bam")
@@ -55,20 +44,10 @@ ChIPQCreport(mhd4bam, reportName="mhd4bam", reportFolder="ChIPQCreport/mhd4bam")
 gst2bam = ChIPQCsample("data/bowtie/gst2_sort.bam")
 ChIPQCreport(gst2bam, reportName="gst2bam", reportFolder="ChIPQCreport/gst2bam")
 
-# Constructing a ChIPQCexperiment object
+# Constructing a ChIPQCexperiment object (exclude Chr C & M)
 hdlvmhd = ChIPQC(samples_hdl, consensus=TRUE, bCount=TRUE, summits=250, chromosomes=c("Chr1", "Chr2", "Chr3", "Chr4", "Chr5"))
 hdlvmhd
 
-plotCoverageHist(experiment)
 plotCoverageHist(hdlvmhd)
 plotPrincomp(hdlvmhd,attributes=c("Condition"))
-plotPrincomp(experiment)
-plotPrincomp(experiment, attributes=c("Condition"))
-
-
-library(devtools)
-install_github("shengqh/ChIPQC")
-
-install.packages("remotes")
-remotes::install_github("shengqh/ChIPQC")
 
